@@ -1,0 +1,58 @@
+.nodes {
+  
+}
+.nodes li {
+  list-style: none;
+  
+  
+}
+
+.category-container{
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ccc; 
+  border-radius: 4px;
+  margin-bottom: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.category-item{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding:4px 10px 4px 10px;
+  
+  
+
+}
+
+.category-icon {
+  margin-right: 8px;
+  
+}
+
+.arrow-icon {
+  margin-right: 8px;
+  color: black;
+  height: 12px;
+}
+
+.circle-icon {
+  margin-right: 8px;
+  color: black;
+  height: 10px;
+}
+
+.name{
+ text-decoration: none;
+ font-size: 18px;
+ font-weight: bold;
+}
+
+.directory-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
