@@ -1,10 +1,11 @@
 import categoriesData from "@/data/data";
 import Nodes from "./nodes";
+import "./nodes.css";
 
 const Directory = () => {
   return (
-    <div>
-      <Nodes categories={categoriesData} />;
+    <div className="directory-container">
+      <Nodes categories={categoriesData} />
     </div>
   );
 };
