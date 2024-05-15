@@ -40,14 +40,21 @@ const Nodes = ({ categories }) => {
                 {category.name}
               </Link>
             </div>
-            {category.categories &&
+            {/* {category.categories &&
               openCategories.includes(category.key) &&
               category.categories.length > 0 && (
                 <div className="subcategory-container">
                   <Nodes categories={category.categories} />
                 </div>
-              )}
+              )} */}
           </div>
+          {category.categories &&
+            openCategories.includes(category.key) &&
+            category.categories.length > 0 && (
+              <div className="subcategory-container">
+                <Nodes categories={category.categories} />
+              </div>
+            )}
         </li>
       ))}
     </ul>
