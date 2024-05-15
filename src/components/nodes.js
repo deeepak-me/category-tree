@@ -5,17 +5,11 @@ import "./nodes.css";
 import Link from "next/link";
 import { FaAngleDown, FaAngleRight, FaCircle } from "react-icons/fa";
 
-const Node = {};
-
 const Nodes = ({ categories }) => {
-  const [openCategories, setOpenCategories] = useState([]);
+  const [openCategory, setOpenCategory] = useState(null);
 
   const toggleCategory = (key) => {
-    if (openCategories.includes(key)) {
-      setOpenCategories(openCategories.filter((item) => item !== key));
-    } else {
-      setOpenCategories([...openCategories, key]);
-    }
+    setOpenCategory(openCategory === key ? null : key);
   };
   return (
     <ul className="nodes">
@@ -25,11 +19,13 @@ const Nodes = ({ categories }) => {
             <div className="category-container">
               <div className="category-item">
                 {category.categories ? (
-                  openCategories.includes(category.key) ? (
-                    <FaAngleDown className="category-icon arrow-down" />
-                  ) : (
-                    <FaAngleRight className="category-icon arrow-icon" />
-                  )
+                  <span>
+                    {openCategory === category.key ? (
+                      <FaAngleDown className="category-icon arrow-down" />
+                    ) : (
+                      <FaAngleRight className="category-icon arrow-icon" />
+                    )}
+                  </span>
                 ) : (
                   <FaCircle className="category-icon circle-icon" />
                 )}
@@ -46,16 +42,9 @@ const Nodes = ({ categories }) => {
                   </Link>
                 )}
               </div>
-              {/* {category.categories &&
-              openCategories.includes(category.key) &&
-              category.categories.length > 0 && (
-                <div className="subcategory-container">
-                  <Nodes categories={category.categories} />
-                </div>
-              )} */}
             </div>
             {category.categories &&
-              openCategories.includes(category.key) &&
+              openCategory === category.key &&
               category.categories.length > 0 && (
                 <div className="subcategory-container">
                   <Nodes categories={category.categories} />
