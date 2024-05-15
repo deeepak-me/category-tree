@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./nodes.css";
 import Link from "next/link";
 import { FaAngleDown, FaAngleRight, FaCircle } from "react-icons/fa";
@@ -11,6 +11,20 @@ const Nodes = ({ categories }) => {
   const toggleCategory = (key) => {
     setOpenCategory(openCategory === key ? null : key);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (e.target.closest(".Container") === null) {
+        setOpenCategory(null);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
     <ul className="nodes">
       {categories.map((category) => (
