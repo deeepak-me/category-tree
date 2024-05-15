@@ -4,7 +4,7 @@ import Nodes from "./nodes";
 const Directory = () => {
   return (
     <div>
-      <Nodes nodes={categoriesData.categories} />;
+      <Nodes categories={categoriesData} />;
     </div>
   );
 };
