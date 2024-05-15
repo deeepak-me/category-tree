@@ -20,42 +20,49 @@ const Nodes = ({ categories }) => {
   return (
     <ul className="nodes">
       {categories.map((category) => (
-        <li key={category.key}>
-          <div className="category-container">
-            <div className="category-item">
-              {category.categories ? (
-                openCategories.includes(category.key) ? (
-                  <FaAngleDown className="category-icon arrow-down" />
+        <div className="Container">
+          <li key={category.key}>
+            <div className="category-container">
+              <div className="category-item">
+                {category.categories ? (
+                  openCategories.includes(category.key) ? (
+                    <FaAngleDown className="category-icon arrow-down" />
+                  ) : (
+                    <FaAngleRight className="category-icon arrow-icon" />
+                  )
                 ) : (
-                  <FaAngleRight className="category-icon arrow-icon" />
-                )
-              ) : (
-                <FaCircle className="category-icon circle-icon" />
-              )}
-              <Link
-                href={category.url}
-                onClick={() => toggleCategory(category.key)}
-                className="name"
-              >
-                {category.name}
-              </Link>
-            </div>
-            {/* {category.categories &&
+                  <FaCircle className="category-icon circle-icon" />
+                )}
+                {category.categories ? (
+                  <span
+                    className="name"
+                    onClick={() => toggleCategory(category.key)}
+                  >
+                    {category.name}
+                  </span>
+                ) : (
+                  <Link href={category.url} className="name">
+                    {category.name}
+                  </Link>
+                )}
+              </div>
+              {/* {category.categories &&
               openCategories.includes(category.key) &&
               category.categories.length > 0 && (
                 <div className="subcategory-container">
                   <Nodes categories={category.categories} />
                 </div>
               )} */}
-          </div>
-          {category.categories &&
-            openCategories.includes(category.key) &&
-            category.categories.length > 0 && (
-              <div className="subcategory-container">
-                <Nodes categories={category.categories} />
-              </div>
-            )}
-        </li>
+            </div>
+            {category.categories &&
+              openCategories.includes(category.key) &&
+              category.categories.length > 0 && (
+                <div className="subcategory-container">
+                  <Nodes categories={category.categories} />
+                </div>
+              )}
+          </li>
+        </div>
       ))}
     </ul>
   );
