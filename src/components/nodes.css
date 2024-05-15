@@ -6,15 +6,11 @@
 }
 
 .Container{
-  /* display: flex;
-  justify-content: space-between; */
   position: relative;
   
 }
 
 .category-container{
-  display: flex;
-  justify-content: space-between;
   border: 1px solid #ccc; 
   border-radius: 4px;
   margin-bottom: 4px;
@@ -31,7 +27,6 @@
 
 .category-icon {
   margin-right: 8px;
-  
 }
 
 .arrow-icon {
@@ -57,10 +52,7 @@
   position: absolute;
   top: 0;
   left: 160px;
-  /* right: -10rem;  */
   background-color: #fff; 
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  */
-  /* padding: 0.5rem; */
   z-index: 1; 
   border-radius: 4px; 
 }
