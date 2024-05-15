@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./nodes.module.css";
+import Link from "next/link";
 
 const Node = {};
 
-const Nodes = ({ nodes }) => {
+const Nodes = ({ categories }) => {
   return (
     // <ul className="nodes">
     //   {nodes.map((node) => {
@@ -16,10 +17,15 @@ const Nodes = ({ nodes }) => {
     //     </div>;
     //   })}
     // </ul>
-    <ul className={styles.nodes}>
-      <li>
-        <a>Computers</a>
-      </li>
+    <ul>
+      {categories.map((category) => (
+        <li key={category.key}>
+          <Link href={category.url}>{category.name}</Link>
+          {category.categories && category.categories.length > 0 && (
+            <Nodes categories={category.categories} />
+          )}
+        </li>
+      ))}
     </ul>
   );
 };
