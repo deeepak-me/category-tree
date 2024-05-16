@@ -1,6 +1,6 @@
 import categoriesData from "@/data/data";
-import Nodes from "./nodes";
-import "./nodes.css";
+import Nodes from "./categories";
+import "./categories.css";
 
 const Directory = () => {
   return (

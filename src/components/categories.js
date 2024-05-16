@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import "./nodes.css";
+import "./categories.css";
 import Link from "next/link";
 import { FaAngleDown, FaAngleRight, FaCircle } from "react-icons/fa";
 
