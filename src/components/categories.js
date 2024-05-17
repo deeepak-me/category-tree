@@ -5,7 +5,7 @@ import "./categories.css";
 import Link from "next/link";
 import { FaAngleDown, FaAngleRight, FaCircle } from "react-icons/fa";
 
-const Nodes = ({ categories }) => {
+const Categories = ({ categories }) => {
   const [openCategory, setOpenCategory] = useState(null);
 
   const toggleCategory = (key) => {
@@ -61,7 +61,7 @@ const Nodes = ({ categories }) => {
               openCategory === category.key &&
               category.categories.length > 0 && (
                 <div className="subcategory-container">
-                  <Nodes categories={category.categories} />
+                  <Categories categories={category.categories} />
                 </div>
               )}
           </li>
@@ -71,4 +71,4 @@ const Nodes = ({ categories }) => {
   );
 };
 
-export default Nodes;
+export default Categories;
